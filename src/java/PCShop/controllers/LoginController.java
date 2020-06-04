@@ -8,6 +8,8 @@ package PCShop.controllers;
 import PCShop.daos.RegistrationDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,10 +28,35 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "GuessLoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-   private final String ADMIN = "admin/landingPage.jsp";
-   private final String USER = "user/landingPage.jsp";
-   private final String LANDINGPAGE = "landingPage.jsp";
-    
+    private final String ADMIN = "admin/landingPage.jsp";
+    private final String USER = "user/landingPage.jsp";
+    private final String LANDINGPAGE = "landingPage.jsp";
+    private String hashPassword(String pass) {
+        String passwordToHash = pass;
+        String generatedPassword = null;
+        try {
+                // Create MessageDigest instance for MD5
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                //Add password bytes to digest
+                md.update(passwordToHash.getBytes());
+                //Get the hash's bytes 
+                byte[] bytes = md.digest();
+                //This bytes[] has bytes in decimal format;
+                //Convert it to hexadecimal format
+                StringBuilder sb = new StringBuilder();
+                for(int i=0; i< bytes.length ;i++)
+                {
+                        sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                }
+                //Get complete hashed password in hex format
+                generatedPassword = sb.toString();
+        } 
+        catch (NoSuchAlgorithmException e){
+                e.printStackTrace();
+        } finally {
+            return generatedPassword;
+        }
+    }
     
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +68,7 @@ public class LoginController extends HttpServlet {
         try {
            String username = request.getParameter("txtUsername");
            String password = request.getParameter("txtPassword");
-           
+           password = this.hashPassword(password);
            RegistrationDAO dao = new RegistrationDAO();
            String user[] = dao.checkLogin(username,password);
            HttpSession session = request.getSession(); 

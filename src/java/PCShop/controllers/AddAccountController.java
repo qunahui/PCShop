@@ -7,6 +7,8 @@ package PCShop.controllers;
 
 import PCShop.daos.RegistrationDAO;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,24 +31,60 @@ public class AddAccountController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private String hashPassword(String pass) {
+        String passwordToHash = pass;
+        String generatedPassword = null;
+        try {
+                // Create MessageDigest instance for MD5
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                //Add password bytes to digest
+                md.update(passwordToHash.getBytes());
+                //Get the hash's bytes 
+                byte[] bytes = md.digest();
+                //This bytes[] has bytes in decimal format;
+                //Convert it to hexadecimal format
+                StringBuilder sb = new StringBuilder();
+                for(int i=0; i< bytes.length ;i++)
+                {
+                        sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                }
+                //Get complete hashed password in hex format
+                generatedPassword = sb.toString();
+        } 
+        catch (NoSuchAlgorithmException e){
+                e.printStackTrace();
+        } finally {
+            return generatedPassword;
+        }
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String username = (String) request.getParameter("regUsername");
+        String password = (String) request.getParameter("regPassword");
+        password = this.hashPassword(password);
+        String lastname = (String) request.getParameter("regLastname");
+        String firstname = (String) request.getParameter("regFirstname");
+        String phone = (String) request.getParameter("regPhone");
+        String Address = (String) request.getParameter("regAddress");
         try {
-            String username = (String) request.getParameter("txtUsername");
-            String password = (String) request.getParameter("txtPassword");
-            String lastname = (String) request.getParameter("txtLastname");
-            String firstname = (String) request.getParameter("txtFirstname");
-            String phone = (String) request.getParameter("txtPhone");
-            String Address = (String) request.getParameter("txtAddress");
             
             RegistrationDAO dao = new RegistrationDAO();
             boolean res = dao.insertAccount(username, password, lastname, firstname, phone, Address, false, false);
             if(res == true) {
                 log("Add success");
+            } else {
+                log("Add failed");
             }
         } catch (Exception e) {
-            log("ERROR at UserViewShopController: " + e.getMessage());
+            request.setAttribute("REGISTERERROR", "The username already exists. Please use a different username !");
+            request.setAttribute("regUsername", username);
+            request.setAttribute("regPassword", password);
+            request.setAttribute("regLastname", lastname);
+            request.setAttribute("regFirstname", firstname);
+            request.setAttribute("regPhone", phone);
+            request.setAttribute("regAddress", Address);
+            log("ERROR at AddAccountController: " + e.getMessage());
         } finally {
             request.getRequestDispatcher("Shopping/shopping.jsp").forward(request, response);
         }

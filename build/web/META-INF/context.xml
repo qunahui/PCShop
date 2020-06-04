@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/PCShop">
+  <Resource auth="Container" driverClassname="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
+            name="PCShopDS" 
+            username="sa" password="123456789" 
+            type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=PCShopDB;instanceName=SQLEXPRESS?characterEncoding=UTF-8" />
+</Context>

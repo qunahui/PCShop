@@ -1,0 +1,36 @@
+.hot-deal {
+    height: 789px;
+    background-image: url('/PCShop/assets/hot-deal-background-2.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 1.2;
+    margin: 0 auto;
+}
+
+.hot-deal__content {
+    width: 80%;
+}
+
+.hot-deal__content {
+    width: 70%;
+}
+
+#offer-text__title {
+    font-size: 58px;
+    color: white;
+    font-weight: 500;
+}
+
+#offer-text__content {
+    font-size: 30px;
+    color: white;
+    font-weight: 300;
+}
+
+.search-bar {
+    height: 50px;
+    background-color: #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
