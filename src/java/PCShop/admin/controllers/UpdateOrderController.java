@@ -22,7 +22,7 @@ public class UpdateOrderController extends HttpServlet {
     private final String VIEW_ORDERS_CONTROLLER = "ViewOrdersController";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("btnAction");
         String pk = request.getParameter("pk");
         String CustomerName = request.getParameter("txtCustomerName");
@@ -35,7 +35,10 @@ public class UpdateOrderController extends HttpServlet {
             OrderDAO dao = new OrderDAO();
             log("Pk: " + pk);
             if(action.equals("Next step order")) {
-                dao.setConfirmedStatus(pk,Integer.parseInt(request.getParameter("orderStatus")) + 1);
+                boolean res = dao.setConfirmedStatus(pk,Integer.parseInt(request.getParameter("orderStatus")) + 1);
+                if(Integer.parseInt(request.getParameter("orderStatus")) == 2 && res == true) {
+                    dao.updateStock(pk);
+                }
             } else if(action.equals("Delete order")) {
                 dao.deleteOrder(pk);
             } else if(action.equals("Update order")) {

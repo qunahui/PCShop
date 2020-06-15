@@ -5,284 +5,154 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href=<c:url value="/css/header.css"/> />
         <link rel="stylesheet" href=<c:url value="/css/style.css" /> />
-        <link rel="stylesheet" href=<c:url value="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" /> />
     </head>
     <body>
         <jsp:include page="header.jsp"/>
+        <div style="height: 50px;"></div>
         <c:set var="result" value="${requestScope.SEARCHRESULT}"/>
-        <table border="1" class="content-container content-container__center" >
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Lastname</th>
-                    <th>Firstname</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Role</th>
-                    <th>Update</th>
-                </tr>
-            </thead>
-            <tbody>
-                    <form action="MainController">
-                        <tr>
-                            <td>
-                                ${result.username}
-                            </td>
-                            <td>
-                                ${result.password}
-                            </td>
-                            <td>
-                                ${result.lastname}
-                            </td>
-                            <td>
-                                ${result.firstname}
-                            </td>
-                            <td>
-                                ${result.phone}
-                            </td>
-                            <td>
-                                ${result.address}
-                            </td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${result.admin == true}">
-                                        <p>Admin</p>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <p>User</p>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td>
-                                <input type="submit" value="Update" name="btnAction" />
-                                <input type="hidden" name="lastSearchValue"
-                                       value="${param.txtSearchValue}"/>
-                                <input type="hidden" name="controller" value="UpdateAccountController"/>
-                            </td>
-                        </tr>
-                    </form>
-            </tbody>
-        </table>
+        <c:set var="orders" value="${requestScope.ORDERS}"/>
         <div class="container">
-            <div class="row my-2">
-                <div class="col-lg-8 order-lg-2">
-                    <ul class="nav nav-tabs">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="text-center">
+                      <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar"> <br/> <br/>
+                      <h6>Upload a different photo...</h6>
+                      <input type="file" class="text-center center-block file-upload" style="display: none;">
+                    </div></hr><br>
+                    
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Orders</strong></span> 1</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Cmt</strong></span> 2</li>
+                    </ul> 
+                </div>
+                <div class="col-sm-9">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">About</a>
                         </li>
-                    </ul>
-                    <div class="tab-content py-4">
-                        <div class="tab-pane active" id="profile">
-                            <h5 class="mb-3">User Profile</h5>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6>About</h6>
-                                    <p>
-                                        Web Designer, UI/UX Engineer
-                                    </p>
-                                    <h6>Hobbies</h6>
-                                    <p>
-                                        Indie music, skiing and hiking. I love the great outdoors.
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Recent badges</h6>
-                                    <a href="#" class="badge badge-dark badge-pill">html5</a>
-                                    <a href="#" class="badge badge-dark badge-pill">react</a>
-                                    <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                                    <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                                    <a href="#" class="badge badge-dark badge-pill">css3</a>
-                                    <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                                    <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                                    <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
-                                    <hr>
-                                    <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                                    <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                                    <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
-                                </div>
-                                <div class="col-md-12">
-                                    <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                                    <table class="table table-sm table-hover table-striped">
-                                        <tbody>                                    
-                                            <tr>
-                                                <td>
-                                                    <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!--/row-->
-                        </div>
-                        <div class="tab-pane" id="messages">
-                            <div class="alert alert-info alert-dismissable">
-                                <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                            </div>
-                            <table class="table table-hover table-striped">
-                                <tbody>                                    
-                                    <tr>
-                                        <td>
-                                           <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                           <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                           <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                           <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                           <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                        </td>
-                                    </tr>
-                                </tbody> 
-                            </table>
-                        </div>
-                        <div class="tab-pane" id="edit">
-                            <form role="form">
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="Jane">
+                    </ul> <br/> <br/>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form class="container" method="POST" action="MainController">
+                                <div class="form-row">
+                                  <div class="col">
+                                        <label>First name</label>
+                                    <input type="text" name="txtFirstname" class="form-control" placeholder="First name" value="${result.getFirstname()}">
+                                  </div>
+                                  <div class="col">
+                                        <label>Last name</label>
+                                    <input type="text" name="txtLastname" class="form-control" placeholder="Last name" value="${result.getLastname()}">
+                                  </div>
+                                </div> <br/>
+                                <div class="form-row">
+                                  <div class="col">
+                                        <label>Phone</label>
+                                    <input type="text" name="txtPhone" class="form-control" placeholder="Phone" value="${result.getPhone()}">
+                                  </div>
+                                  <div class="col">
+                                        <label>Address</label>
+                                    <input type="text" name="txtAddress" class="form-control" placeholder="Address" value="${result.getAddress()}">
+                                  </div>
+                                </div> <br/>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>Mail </label>
+                                        <input type="text" name="txtMail" class="form-control" placeholder="Mail" value="${result.getMail()}">
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="Bishop">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="email" value="email@gmail.com">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Company</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="url" value="">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="" placeholder="Street">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-6">
-                                        <input class="form-control" type="text" value="" placeholder="City">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <input class="form-control" type="text" value="" placeholder="State">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
-                                    <div class="col-lg-9">
-                                        <select id="user_time_zone" class="form-control" size="0">
-                                            <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                            <option value="Alaska">(GMT-09:00) Alaska</option>
-                                            <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                            <option value="Arizona">(GMT-07:00) Arizona</option>
-                                            <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                            <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                            <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                            <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="janeuser">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-9">
-                                        <input type="reset" class="btn btn-secondary" value="Cancel">
-                                        <input type="button" class="btn btn-primary" value="Save Changes">
-                                    </div>
-                                </div>
+                                </div> <br/>
+                                <input type="hidden" name="controller" value="UpdateAccountController">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Save</button>
                             </form>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                  <table class="table">
+                                    <thead class="thead-light">
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="order" items="${orders}" varStatus="counter">
+                                            <tr>
+                                                <th scope="row">${counter.count}</th>
+                                                <td>${order.getID()}</td>
+                                                <td><fmt:formatNumber type="number" maxFractionDigits="5" value="${order.getTotal()}" /></td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${order.getStatus() == 1}">
+                                                            Unconfirmed
+                                                        </c:when>
+                                                        <c:when test="${order.getStatus() == 2}">
+                                                            On process
+                                                        </c:when>
+                                                        <c:when test="${order.getStatus() == 3}">
+                                                            Deliveried
+                                                        </c:when>
+                                                        <c:when test="${order.getStatus() == 4}">
+                                                            Cancelled
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${order.getStatus() == 1 && order.getNote() != 'Request cancel order'}">
+                                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#cancelOrderModal_<c:out value='${order.getID()}'/>" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                        </c:when>
+                                                        <c:when test="${order.getNote() == 'Request cancel order' && order.getStatus() != 4}">
+                                                            <button type="button" class="btn btn-outline-danger" disabled>Cancelling</button>
+                                                        </c:when>
+                                                    </c:choose>
+                                                </td>
+                                            </tr>
+                                            <div class="modal fade" id="<c:out value='cancelOrderModal_${order.getID()}'/>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                   <div class="modal-content">
+                                                        <div class="modal-header">
+                                                           <h5 class="modal-title" id="exampleModalLabel">Cancel order #${order.getID()}</h5>
+                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                           <span aria-hidden="true">&times;</span>
+                                                           </button>
+                                                        </div>
+                                                    <form action="MainController" method="POST">
+                                                        <div class="modal-body">
+                                                            <p>Are you sure to cancel this order ? You need to wait for admin permission and this action can't be undo !</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                           <button type="submit" class="btn btn-primary">Request cancel</button>
+                                                        </div>
+                                                        <input type="hidden" name="lastURL" value="${requestScope['javax.servlet.forward.query_string']}"/>
+                                                        <input type="hidden" name="controller" value="CancelOrderController"/>
+                                                        <input type="hidden" name="pk" value="${order.getID()}"/>
+                                                   </form>
+                                                    </div>
+                                             </div>
+                                           </div>
+                                        </c:forEach>
+                                    </tbody>
+                                  </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 order-lg-1 text-center">
-                    <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-                    <h6 class="mt-2">Upload a different photo</h6>
-                    <label class="custom-file">
-                        <input type="file" id="file" class="custom-file-input">
-                        <span class="custom-file-control">Choose file</span>
-                    </label>
-                </div>
-            </div>
+          </div>
         </div>
     </body>
 </html>

@@ -41,6 +41,7 @@ public class ViewOrdersController extends HttpServlet {
                 } else if(action.equals("Deleted")) {
                     dao.searchDeleted();
                 }
+                log("list length: ");
                 List<OrderDTO> result = dao.getListOrders();
                 request.setAttribute("SEARCHRESULT", result);
         } catch (Exception e) {

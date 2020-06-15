@@ -17,15 +17,17 @@ public class ProductDTO {
     private long quantityProduct;
     private long price;
     private long discount;
+    private double aveRating;
     private String path;
     private String details;
     
    public ProductDTO() {
        ID = categoryID = description = name = path = details = "";
        quantityProduct = price = discount;
+       aveRating = 0;
    }
    
-   public ProductDTO(String ID,String categoryID, String description, String name, String details, long quantityProduct, long price,long discount, String path) {
+   public ProductDTO(String ID,String categoryID, String description, String name, String details, long quantityProduct, long price,long discount, double aveRating, String path) {
        this.ID = ID;
        this.categoryID = categoryID;
        this.description = description;
@@ -34,7 +36,14 @@ public class ProductDTO {
        this.quantityProduct = quantityProduct;
        this.price = price;
        this.discount = discount;
+       this.aveRating = aveRating;
        this.path = path;
+   }
+   public double getAveRating() {
+       return this.aveRating;
+   } 
+   public void setAveRating(double aveRating) {
+       this.aveRating = aveRating;
    }
    public String getPath() {
        return this.path;

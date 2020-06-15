@@ -44,6 +44,9 @@ public class MainController extends HttpServlet {
     private final String VIEW_CHECK_OUT_CONTROLLER = "ViewCheckOutController";
     private final String CONFIRM_CHECK_OUT_CONTROLLER = "ConfirmCheckOutController";
     private final String VIEW_ACCOUNT_CONTROLLER = "ViewAccountController";
+    private final String ADD_COMMENT_CONTROLLER = "AddCommentController";
+    private final String DELETE_COMMENT_CONTROLLER = "DeleteCommentController";
+    private final String CANCEL_ORDER_CONTROLLER = "CancelOrderController";
     
     
 
@@ -53,6 +56,7 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");        
         HttpSession session = request.getSession();
+        log("MainController received a request");
         if(session.getAttribute("ROLE") == null) {
           session.setAttribute("ROLE","guess");
           session.setAttribute("MEMBERID","guess");
@@ -88,6 +92,12 @@ public class MainController extends HttpServlet {
                 url = VIEW_CHECK_OUT_CONTROLLER;
             } else if(controller.equals("ConfirmCheckOutController")) {
                 url = CONFIRM_CHECK_OUT_CONTROLLER;
+            } else if (controller.equals("AddCommentController")) {
+                url = ADD_COMMENT_CONTROLLER;
+            } else if (controller.equals("DeleteCommentController")) {
+                url = DELETE_COMMENT_CONTROLLER;
+            } else if(controller.equals("CancelOrderController")) {
+                url = CANCEL_ORDER_CONTROLLER;
             }
         } catch(Exception e) {
           log("ERROR at MainController: " + e.getMessage());

@@ -36,34 +36,21 @@ public class ViewShopController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         log("view shop as guess");
+        String url = "Shopping/shopping.jsp";
         try {
             String searchByCategory = request.getParameter("searchByCategory");
             String searchByName = request.getParameter("searchByName");
             String sortBy = request.getParameter("sortBy");
             String searchAction = request.getParameter("action");
-            if(sortBy == null) {
-               sortBy = "sortByDate";
+            String lastURL = request.getParameter("lastURL");
+            ProductDAO dao = new ProductDAO();
+            if(lastURL != null) {
+                String newURL = "/ViewShopController?" + lastURL.substring(lastURL.indexOf("search"),lastURL.length()) + "&sortBy=" + sortBy;
             }
-            log("searchByCategory: " + searchByCategory + " searchByName: " + searchByName + " sortBy: " + sortBy);
-            log("search type: " + searchAction);
-           ProductDAO dao = new ProductDAO();
-           if(searchAction == null || searchByCategory.equals("") && searchByName.equals("")) { 
-                if(sortBy.equals("sortByDate")) {
-                    dao.searchAllByDate();
-                } else if(sortBy.equals("sortByPriceASC")){
-                    dao.searchAllByPriceASC();
-                } else if(sortBy.equals("sortByPriceDESC")){
-                    dao.searchAllByPriceDESC();
-                }
-           } else if(searchAction.equals("categorySearch")) {
-                if(sortBy.equals("sortByDate")) {
-                        dao.searchCategoryByDate(searchByCategory);
-                    } else if(sortBy.equals("sortByPriceASC")){
-                        dao.searchCategoryByPriceASC(searchByCategory);
-                    } else if(sortBy.equals("sortByPriceDESC")){
-                        dao.searchCategoryByPriceDESC(searchByCategory);
-                }
-           } else if(searchAction.equals("nameSearch")) {
+            if(sortBy == null) {
+                sortBy = "sortByDate";
+            }
+            if(searchByName!= null) {
                 if(sortBy.equals("sortByDate")) {
                     dao.searchNameByDate(searchByName);
                 } else if(sortBy.equals("sortByPriceASC")){
@@ -71,17 +58,24 @@ public class ViewShopController extends HttpServlet {
                 } else if(sortBy.equals("sortByPriceDESC")){
                     dao.searchNameByPriceDESC(searchByName);
                 }
-           }
-           List<ProductDTO> result = dao.getListProducts();
-           
-           request.setAttribute("SEARCHRESULT", result);
-           request.setAttribute("SEARCHBYCATEGORY",searchByCategory);
-           request.setAttribute("SEARCHBYNAME",searchByName);
-           request.setAttribute("OPTIONSELECTED",sortBy);
+                request.setAttribute("SEARCHBYNAME",searchByName);
+            } else if(searchByCategory !=null) {
+                if(sortBy.equals("sortByDate")) {
+                    dao.searchCategoryByDate(searchByCategory);
+                } else if(sortBy.equals("sortByPriceASC")){
+                    dao.searchCategoryByPriceASC(searchByCategory);
+                } else if(sortBy.equals("sortByPriceDESC")){
+                    dao.searchCategoryByPriceDESC(searchByCategory);
+                }
+            request.setAttribute("SEARCHBYCATEGORY",searchByCategory);
+            }
+            List<ProductDTO> result = dao.getListProducts();
+            request.setAttribute("SEARCHRESULT", result);
+            request.setAttribute("SORTSELECTED",sortBy);
         } catch (Exception e) {
             log("ERROR at UserViewShopController: " + e.getMessage());
         } finally {
-            request.getRequestDispatcher("Shopping/shopping.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

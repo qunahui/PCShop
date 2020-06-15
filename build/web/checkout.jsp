@@ -46,7 +46,7 @@
               </div>
               <div class="mb-3">
                 <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com" name="txtMail" value="">
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" name="txtMail" value="${result.mail}">
               </div>
               <div class="mb-3">
                 <label for="address">Address</label>

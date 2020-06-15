@@ -67,7 +67,7 @@
                        },
                        proImg: {
                            required: true,
-                           accept: "jpg,png,jpeg,gif"
+                           accept: "jpg,png,jpeg,gif,webp"
                        }
                    }
                 })

@@ -5,13 +5,14 @@
  */
 package PCShop.controllers;
 
+import PCShop.cart.CartObj;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,7 +25,10 @@ public class ViewSuccessOrderController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try{
-            
+            HttpSession session = request.getSession();
+            CartObj cart = (CartObj) session.getAttribute("CART");
+            request.setAttribute("CART", cart);
+            session.removeAttribute("CART");
         } catch (Exception e) {
             log("ERROR at UserViewShopController: " + e.getMessage());
         } finally {

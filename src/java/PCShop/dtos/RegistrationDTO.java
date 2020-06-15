@@ -18,14 +18,15 @@ public class RegistrationDTO implements Serializable{
     private String firstname;
     private String phone;
     private String address;
+    private String mail;
     private boolean isAdmin;
     
    public RegistrationDTO() {
-       username = password = lastname = firstname = phone = address = "";
+       username = password = lastname = firstname = phone = address = mail = "";
        isAdmin = false;
    }
    
-   public RegistrationDTO(String username, String password, String lastname, String firstname, String phone, String address, boolean isAdmin) {
+   public RegistrationDTO(String username, String password, String lastname, String firstname, String phone, String address, String mail, boolean isAdmin) {
        this.username = username;
        this.password = password;
        this.lastname = lastname;
@@ -33,6 +34,14 @@ public class RegistrationDTO implements Serializable{
        this.phone = phone;
        this.address = address;
        this.isAdmin = isAdmin;
+       this.mail = mail;
+   }
+   public String getMail() {
+       return this.mail;
+   }
+   
+   public void setMail(String mail) {
+       this.mail = mail;
    }
    
    public String getUsername() {

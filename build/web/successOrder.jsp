@@ -85,7 +85,7 @@
     <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Open Sans, Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
         For what reason would it be advisable for me to think about business content? That might be little bit risky to have crew member like them.
     </div>
-    <c:set var="cart" value="${sessionScope.CART}"/>
+    <c:set var="cart" value="${requestScope.CART}"/>
     <c:set var="orderID" value="${requestScope.ORDERID}"/>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>

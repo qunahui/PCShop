@@ -32,6 +32,51 @@ public class OrderDAO {
     public int getLength() {
         return this.listOrders.size();
     }
+    
+    public void searchByUserID(String pk) 
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try { 
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "SELECT * FROM [dbo].[Order] WHERE isDeleted = 0 AND CustomerID = '" + pk + "'";
+                stm = con.prepareStatement(sql);
+                rs = stm.executeQuery();
+                
+                while(rs.next()) {
+                    String ID = rs.getString("ID").toLowerCase();
+                    String OrderDate = rs.getString("OrderDate");
+                    int Status = rs.getInt("Status");
+                    String Note = rs.getString("Note");
+                    String CustomerID = rs.getString("CustomerID");
+                    String CustomerName = rs.getString("CustomerName");
+                    String CustomerPhone = rs.getString("CustomerPhone");
+                    String CustomerEmail = rs.getString("CustomerEmail");
+                    String CustomerAddress = rs.getString("CustomerAddress");
+                    boolean isDeleted = rs.getBoolean("isDeleted");
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
+                    if(listOrders == null) {
+                        listOrders = new ArrayList<OrderDTO>();
+                    }
+                    listOrders.add(dto);
+                }
+            }
+        } finally { 
+            if(rs != null) {
+                rs.close();
+            } 
+            if(stm != null) {
+                stm.close();
+            }
+            if(con != null) {
+                con.close();
+            }
+        }
+    }
+    
     public void searchAll() 
         throws SQLException, NamingException {
         Connection con = null;
@@ -55,7 +100,8 @@ public class OrderDAO {
                     String CustomerEmail = rs.getString("CustomerEmail");
                     String CustomerAddress = rs.getString("CustomerAddress");
                     boolean isDeleted = rs.getBoolean("isDeleted");
-                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,isDeleted);
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
                     if(listOrders == null) {
                         listOrders = new ArrayList<OrderDTO>();
                     }
@@ -97,7 +143,8 @@ public class OrderDAO {
                     String CustomerEmail = rs.getString("CustomerEmail");
                     String CustomerAddress = rs.getString("CustomerAddress");
                     boolean isDeleted = rs.getBoolean("isDeleted");
-                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,isDeleted);
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
                     if(listOrders == null) {
                         listOrders = new ArrayList<OrderDTO>();
                     }
@@ -139,7 +186,8 @@ public class OrderDAO {
                     String CustomerEmail = rs.getString("CustomerEmail");
                     String CustomerAddress = rs.getString("CustomerAddress");
                     boolean isDeleted = rs.getBoolean("isDeleted");
-                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,isDeleted);
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
                     if(listOrders == null) {
                         listOrders = new ArrayList<OrderDTO>();
                     }
@@ -181,7 +229,8 @@ public class OrderDAO {
                     String CustomerEmail = rs.getString("CustomerEmail");
                     String CustomerAddress = rs.getString("CustomerAddress");
                     boolean isDeleted = rs.getBoolean("isDeleted");
-                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,isDeleted);
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
                     if(listOrders == null) {
                         listOrders = new ArrayList<OrderDTO>();
                     }
@@ -223,7 +272,8 @@ public class OrderDAO {
                     String CustomerEmail = rs.getString("CustomerEmail");
                     String CustomerAddress = rs.getString("CustomerAddress");
                     boolean isDeleted = rs.getBoolean("isDeleted");
-                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,isDeleted);
+                    double Total = rs.getDouble("Total");
+                    OrderDTO dto = new OrderDTO(ID,CustomerID,OrderDate,Status,Note,CustomerName,CustomerPhone,CustomerEmail,CustomerAddress,Total,isDeleted);
                     if(listOrders == null) {
                         listOrders = new ArrayList<OrderDTO>();
                     }
@@ -250,9 +300,9 @@ public class OrderDAO {
         try { 
             con = DBUtils.makeConnection();
             if(con != null) {
-                String sql = "INSERT [dbo].[Order] (ID, CustomerID, OrderDate, Status, Note, CustomerName, CustomerPhone, CustomerEmail, CustomerAddress, isDeleted)\n"
+                String sql = "INSERT [dbo].[Order] (ID, CustomerID, OrderDate, Status, Note, CustomerName, CustomerPhone, CustomerEmail, CustomerAddress, Total, isDeleted)\n"
                             +"OUTPUT Inserted.ID\n"
-                            + "Values(NEWID(),?,CURRENT_TIMESTAMP,1,?,?,?,?,?,0)";
+                            + "Values(NEWID(),?,CURRENT_TIMESTAMP,1,?,?,?,?,?,0,0)";
                 stm = con.prepareStatement(sql);
                 stm.setString(1,CustomerID);
                 stm.setString(2,Note);
@@ -309,7 +359,7 @@ public class OrderDAO {
         }
         return "failed";
     }
-    public void setConfirmedStatus(String pk,int Status)
+    public boolean setConfirmedStatus(String pk,int Status)
         throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -325,7 +375,7 @@ public class OrderDAO {
                 stm.setString(2,pk);
                 int row = stm.executeUpdate();
                 if(row > 0) {
-                    return;
+                    return true;
                 }
             } 
         } finally {
@@ -336,6 +386,7 @@ public class OrderDAO {
                 con.close();
             }
         }
+        return false;
     }
     public void restoreOrder(String pk)
         throws SQLException, NamingException {
@@ -421,5 +472,59 @@ public class OrderDAO {
                 con.close();
             }
         }
+    }
+    public boolean cancelOrder(String pk)
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        System.out.println(pk);
+        try {
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "UPDATE [dbo].[Order] "
+                        + "SET Note = 'Request cancel order'"
+                        + "WHERE ID = ?";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,pk);
+                int row = stm.executeUpdate();
+                if(row > 0) {
+                    return true;
+                }
+            } 
+        } finally {
+            if(stm !=null) {
+                stm.close();
+            }
+            if(con !=null) {
+                con.close();
+            }
+        }
+        return false;
+    }
+    public boolean updateStock(String pk)
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        System.out.println(pk);
+        try {
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "exec Update_Onstock @OrderID = ?";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,pk);
+                int row = stm.executeUpdate();
+                if(row > 0) {
+                    return true;
+                }
+            } 
+        } finally {
+            if(stm !=null) {
+                stm.close();
+            }
+            if(con !=null) {
+                con.close();
+            }
+        }
+        return false;
     }
 }

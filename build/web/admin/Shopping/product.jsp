@@ -19,7 +19,6 @@
     <body>
         <jsp:include page="../header.jsp" />
         <div class="content-container">
-            <h1>Hello this is product Page!</h1>
             <c:set var="product" value="${requestScope.SEARCHRESULT}"/>
             <div class="content-container content-container__product">
                 <div class="left-content">

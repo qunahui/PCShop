@@ -51,8 +51,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -93,8 +94,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -134,8 +136,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -175,8 +178,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -216,8 +220,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -257,8 +262,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -302,8 +308,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -347,8 +354,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -392,8 +400,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -434,8 +443,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -476,8 +486,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }
@@ -518,8 +529,9 @@ public class ProductDAO implements Serializable{
                     long quantityProduct = rs.getLong("quantityProduct");
                     long price = rs.getLong("price");
                     long discount = rs.getLong("discount");
+                    double aveRating = rs.getDouble("aveRating");
                     String path = rs.getString("titlePath");
-                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,path);
+                    ProductDTO dto = new ProductDTO(ID,categoryID,description,name,details,quantityProduct,price,discount,aveRating,path);
                     if(listProducts == null) {
                         listProducts = new ArrayList<ProductDTO>();
                     }

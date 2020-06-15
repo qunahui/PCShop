@@ -88,8 +88,11 @@ public class RegistrationDAO implements Serializable{
                     String password = rs.getString("password");
                     String lastname = rs.getString("lastname");
                     String firstname = rs.getString("firstname");
+                    String phone = rs.getString("phone");
+                    String address = rs.getString("address");
+                    String mail = rs.getString("mail");
                     boolean isAdmin = rs.getBoolean("isAdmin");
-                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,null,null,isAdmin);
+                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,phone,address,mail,isAdmin);
                     if(listAccounts == null) {
                         listAccounts = new ArrayList<RegistrationDTO>();
                     }
@@ -129,8 +132,9 @@ public class RegistrationDAO implements Serializable{
                     String firstname = rs.getString("firstname");
                     String phone = rs.getString("Phone");
                     String address = rs.getString("Address");
+                    String mail = rs.getString("mail");
                     boolean isAdmin = rs.getBoolean("isAdmin");
-                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,phone,address,isAdmin);
+                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,phone,address,mail,isAdmin);
                     if(listAccounts == null) {
                         listAccounts = new ArrayList<RegistrationDTO>();
                     }
@@ -167,8 +171,11 @@ public class RegistrationDAO implements Serializable{
                     String password = rs.getString("password");
                     String lastname = rs.getString("lastname");
                     String firstname = rs.getString("firstname");
+                    String phone = rs.getString("Phone");
+                    String address = rs.getString("Address");
+                    String mail = rs.getString("mail");
                     boolean isAdmin = rs.getBoolean("isAdmin");
-                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,null,null,isAdmin);
+                    RegistrationDTO dto = new RegistrationDTO(username,password,lastname,firstname,phone,address,mail,isAdmin);
                     if(listAccounts == null) {
                         listAccounts = new ArrayList<RegistrationDTO>();
                     }

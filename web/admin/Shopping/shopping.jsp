@@ -20,21 +20,9 @@
 
 <body>
     <jsp:include page="../header.jsp" />
-<!--    <nav class="navbar navbar-light bg-light justify-content-center align-items-center">
-        <form class="form-inline" action="MainController">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add product</button>
-            <input type="hidden" name="controller" value="ViewAddProductController"/>
-        </form>
-    </nav>-->
-<!--    <form action="MainController">
-        <select name="sortBy" id="ProductSelect">
-            <option value="sortByDate" ${requestScope.OPTIONSELECTED == null ? 'selected':''} ${requestScope.OPTIONSELECTED == 'sortByDate' ? 'selected':''}>Search by date</option>
-            <option value="sortByPriceASC" ${requestScope.OPTIONSELECTED == 'sortByPriceASC' ? 'selected':''}>Search by price (low to high)</option>
-            <option value="sortByPriceDESC" ${requestScope.OPTIONSELECTED == 'sortByPriceDESC' ? 'selected':''}>Search by price (high to low)</option>
-        </select>
-        <input type="hidden" name="controller" value="ViewShopController"/>
-        <input type="submit" style="display:none;" id="submit">
-    </form>-->
+    <div class="container-fluid text-center" style="margin: 10px 0;">
+        <a href="/PCShop/admin/ViewAddProductController"><button type="button" class="btn btn-large btn-outline-danger" name="action" value="">Add product</i></button></a>
+    </div>
     <table border="1" class="table table-bordered container" >
         <thead class="thead-dark">
             <tr>
@@ -133,11 +121,4 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script>
-    let input = document.getElementById("submit");
-    let sel = document.getElementById("ProductSelect");
-    sel.onchange = function(){
-        input.click();
-    }
-</script>
 </html>

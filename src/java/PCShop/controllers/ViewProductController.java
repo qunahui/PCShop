@@ -5,10 +5,11 @@
  */
 package PCShop.controllers;
 
+import PCShop.daos.CommentDAO;
 import PCShop.daos.ProductDAO;
+import PCShop.dtos.CommentDTO;
 import PCShop.dtos.ProductDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,17 +36,21 @@ public class ViewProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-        String url = "Shopping/productNotFound.jsp";
-        String pk = request.getParameter("pk");
+    String url = "Shopping/productNotFound.jsp";
+    String pk = request.getParameter("pk");
         try {
             if(pk == null) {
                 log("pk is null");
             } else {
-                ProductDAO dao = new ProductDAO();
-                log(pk);
-                dao.searchByID(pk);
-                List<ProductDTO> result = dao.getListProducts();
+                ProductDAO proDAO = new ProductDAO();
+                CommentDAO cmtDAO = new CommentDAO();
+                proDAO.searchByID(pk);
+                cmtDAO.searchByProductID(pk);
+                List<ProductDTO> result = proDAO.getListProducts();
+                List<CommentDTO> comments = cmtDAO.getListComments();
+                request.setAttribute("COMMENTS", comments);
                 request.setAttribute("SEARCHRESULT", result);
+                
                 url = "Shopping/product.jsp";
             }
         } catch (Exception e) {

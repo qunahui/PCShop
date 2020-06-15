@@ -1,8 +1,3 @@
-<%-- 
-    Document   : viewCart
-    Created on : May 4, 2020, 2:40:13 PM
-    Author     : Hui
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -15,9 +10,6 @@
         <link rel="stylesheet" href="<c:url value="/css/landingPage.css" />">
         <link rel="stylesheet" href=<c:url value="/css/header.css"/> />
         <link rel="stylesheet" href=<c:url value="/css/style.css" /> />
-        <link rel="stylesheet" href=<c:url value="/css/cart.css" /> />
-        <link rel="stylesheet" href=<c:url value="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" /> />
-        <link rel="stylesheet" href=<c:url value="/css/bootstrap.min.css" /> />
     </head>
     <body>
         <jsp:include page="header.jsp"/>
@@ -28,11 +20,11 @@
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th style="width:50%;">Product</th>
+                            <th style="width:45%;">Product</th>
                             <th style="width:15%;" class="text-center">Price</th>
                             <th style="width:15%;" class="text-center">Discount</th>
-                            <th style="width:8%;">Quantity</th>
-                            <th style="width:17%;" class="text-center">Subtotal</th>
+                            <th style="width:10%;">Quantity</th>
+                            <th style="width:20%;" class="text-center">Subtotal</th>
                             <th style="width:10%;"></th>
                         </tr> 
                     </thead>
@@ -43,7 +35,7 @@
                                     <td data-th="Product">
                                         <div class="row">
                                             <div class="col-sm-3 hidden-xs"> 
-                                                <img src="${product.value.getPath()}" class="img-responsive"/>
+                                                <img src="${product.value.getPath()}" class="img-fluid"/>
                                             </div>
                                             <div class="col-sm-9">
                                                 <h4 class="nomargin">${product.value.getName()}</h4>
@@ -58,8 +50,8 @@
                                             <input type="number" class="form-control text-center" value="${product.value.getQuantity()}" name="txtProQuantity" id="ProQuantity" readonly="true">
                                             <input type="hidden" name="txtProID" value="${product.value.getID()}"> </br>
                                             <div class="text-center">
-                                                <button type="submit" value="Update quantity plus" name="btnAction"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                                <button type="submit" value="Update quantity minus" name="btnAction" ${product.value.getQuantity() == 1 ? 'disabled':''}><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                                <button class="btn btn-outline-dark" type="submit" value="Update quantity plus" name="btnAction"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                <button class="btn btn-outline-dark" type="submit" value="Update quantity minus" name="btnAction" ${product.value.getQuantity() == 1 ? 'disabled':''}><i class="fa fa-minus" aria-hidden="true"></i></button>
                                                 <input type="hidden" name="controller" value="UpdateCartController"/>
                                             </div>
                                     </form>
@@ -72,8 +64,8 @@
                                             <input type="hidden" name="controller" value="UpdateCartController"/>
                                         </form>
                                     </td>
-                                </tr>
-                            </c:forEach>
+                                </tr> 
+                           </c:forEach>
                     </tbody>       
                     <tfoot style="display">
                         <tr class="visible-xs">

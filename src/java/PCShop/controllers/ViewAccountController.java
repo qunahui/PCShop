@@ -5,9 +5,12 @@
  */
 package PCShop.controllers;
 
+import PCShop.daos.OrderDAO;
 import PCShop.daos.RegistrationDAO;
+import PCShop.dtos.OrderDTO;
 import PCShop.dtos.RegistrationDTO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,11 +43,14 @@ public class ViewAccountController extends HttpServlet {
             String userID = session.getAttribute("MEMBERID").toString().trim();
             if(!userID.equals("guess")) {     
                 url = "account.jsp";
-                RegistrationDAO dao = new RegistrationDAO();
-                log(userID);
-                dao.searchByID(userID);
-                RegistrationDTO dto = dao.getListAccounts().get(0);
-                request.setAttribute("SEARCHRESULT",dto);
+                RegistrationDAO regDAO = new RegistrationDAO();
+                OrderDAO ordDAO = new OrderDAO();
+                regDAO.searchByID(userID);
+                ordDAO.searchByUserID(userID);
+                RegistrationDTO regDTO = regDAO.getListAccounts().get(0);
+                List<OrderDTO> ordDTO = ordDAO.getListOrders();
+                request.setAttribute("SEARCHRESULT",regDTO);
+                request.setAttribute("ORDERS",ordDTO);
             } else {
                 url = "ViewLandingPageController";
             }

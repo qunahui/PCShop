@@ -62,7 +62,7 @@ public class ConfirmCheckOutController extends HttpServlet {
                 orderID = dao.createOrder(memberID, memberName, memberMail, memberPhone, memberAddress, memberNote);
                 Map<String,ProductObj> products = cart.getProducts();
                 for (Map.Entry<String,ProductObj> entry : products.entrySet()) {
-                    dao.createOrderProduct(orderID, entry.getKey(), entry.getValue().getQuantity(), entry.getValue().getPrice());
+                    dao.createOrderProduct(orderID, entry.getKey(), entry.getValue().getQuantity(), entry.getValue().getPrice()*(1-entry.getValue().getDiscount()/100));
                 }
                 request.setAttribute("ORDERID", orderID);
                 request.setAttribute("ORDERSTATUS", 1);

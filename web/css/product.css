@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 6, 2020, 6:22:05 PM
+    Author     : Hui
+*/
+
+label {
+    font-family: FontAwesome;
+}
+.gold{
+	color: #FFBF00;
+}
+
+/*********************************************
+					PRODUCTS
+*********************************************/
+
+.product{
+	border: 1px solid #dddddd;
+	height: 321px;
+}
+
+.product>img{
+	max-width: 230px;
+}
+
+.product-rating{
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+
+.product-title{
+	font-size: 20px;
+}
+
+.product-desc{
+	font-size: 14px;
+}
+
+.product-price{
+	font-size: 22px;
+}
+
+.product-stock{
+	color: #74DF00;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.product-info{
+		margin-top: 50px;
+}
+
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+#rating_bar {
+    display:inline;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+#rating_bar > input {
+    display: none;
+}
+#rating_bar > label[title] {
+    direction: ltr;
+}
+#rating_bar > label:before {
+    content: "\f005";
+    color: #c7c5c5;
+    cursor: pointer;
+}
+#rating_bar > label:hover:before,
+#rating_bar > label:hover ~ label:before,
+#rating_bar > input:checked ~ label:before {
+    color: orange;
+}

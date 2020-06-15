@@ -19,12 +19,13 @@ public class OrderDTO {
     private String CustomerEmail;
     private String CustomerAddress;
     private boolean isDeleted;
+    private double Total;
     
     public OrderDTO() {
-        this("","","",0,"","","","","",false);
+        this("","","",0,"","","","","",0,false);
     }
     
-    public OrderDTO(String ID, String CustomerID, String OrderDate, int Status, String Note, String CustomerName, String CustomerPhone, String CustomerEmail, String CustomerAddress, boolean isDeleted) {
+    public OrderDTO(String ID, String CustomerID, String OrderDate, int Status, String Note, String CustomerName, String CustomerPhone, String CustomerEmail, String CustomerAddress, double Total, boolean isDeleted) {
         this.ID = ID;
         this.OrderDate = OrderDate;
         this.Status = Status;
@@ -35,6 +36,7 @@ public class OrderDTO {
         this.CustomerEmail = CustomerEmail;
         this.CustomerAddress = CustomerAddress;
         this.isDeleted = isDeleted;
+        this.Total = Total;
     }
     
     public String getID() {
@@ -44,6 +46,15 @@ public class OrderDTO {
     public void setID(String ID) {
         this.ID = ID;
     }
+    
+    public double getTotal() {
+        return this.Total;
+    }
+    
+    public void setTotal(double Total) {
+        this.Total = Total;
+    }
+    
     public String getCustomerID() {
         return this.CustomerID;
     }

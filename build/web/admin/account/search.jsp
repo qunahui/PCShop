@@ -37,7 +37,6 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Username</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Lastname</th>
                             <th scope="col">firstname</th>
                             <th scope="col">Admin</th>
@@ -55,9 +54,6 @@
                                     <td>
                                         ${dto.username}
                                         <input type="hidden" name="txtUsername" value="${dto.username}" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="txtPassword" value="${dto.password}" />
                                     </td>
                                     <td>
                                         ${dto.lastname}
