@@ -1,0 +1,22 @@
+GET http://localhost:8082/reset
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlciIsImlhdCI6MTU5MjI5NjMyMSwiZXhwIjoxNTkyMjk2NjIxfQ.jbjTdlkceOoviJuEoEorxswd696jgTE4WW-S7MHg4wY
+###
+DELETE http://localhost:8082/delete
+Content-Type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSHVpIiwiaWF0IjoxNTkyMjI2NDkwfQ.A42jPijeM0MQUKHWpZ00I4CYKiNMvy6rnBspI6Rk_f8"
+}
+
+###
+POST http://localhost:8082/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlciIsImlhdCI6MTU5MjI3NjYzNn0.cdIWZEh_7yR8rG_SNpeuLyFSaezoutWD-p5f9wkBt6g"
+}
+
+###
+
+POST http://localhost:8082/login
+Content-Type: application/json
