@@ -89,6 +89,8 @@
                             <input class="form-control" id="passwordLoginInput" type="password"aria-label="Password" name="txtPassword">
                         </div>
                         <input type="hidden" name="controller" value="Logging"/>
+                        <br/>
+                        <a href="/PCShop/forgot.jsp" class="text-muted" style="hover { color: black;}">Forgot your password ?</a> 
                 </div>
                 <div class="modal-footer justify-content-center align-items-center">
                     <button class="btn btn-outline-dark my-2 my-sm-0" style="margin-left: 5px;" type="submit" value="Login" name="btnAction" id="loginBtn">Login</button>
@@ -194,7 +196,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Noti</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

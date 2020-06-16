@@ -27,12 +27,15 @@
         </br>
         <div class="row">
             <div class="col-md-6">
-                <img src="${product[0].path}" style="width: 500px; height: 500px;">
+                <button type="button" style="outline: none; border: none; padding: 0;" data-toggle="modal" data-target="#imgModal" id="openImgModalBtn">
+                    <img src="${product[0].path}" style="width: 500px; height: 500px;">
+                </button>
             </div>
             <div class="col-md-6">
                 <h1 class="">${product[0].name}</h1>
                 <br />
                 <div id="txtRating"></div>
+                <br/>
                 <c:choose>
                     <c:when test="${product[0].discount > 0}">
                         <span class="h3" style="color: #ccc;">
@@ -165,25 +168,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade" id="<c:out value='deleteCmtModal_${comment.getID()}'/>" tabindex="-1" role="dialog">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Delete your comment</h5>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <p>Are you sure to delete this comment ?</p>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form style="display: inline;" action="MainController" method="POST">
-                                        <button class="btn btn-danger">Delete</button>
-                                        <input type="hidden" name="controller" value="DeleteCommentController"/>
-                                        <input type="hidden" name="cmtID" value="${comment.getID()}"/>
-                                        <input type="hidden" name="pk" value="${comment.getProductID()}"/>
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
                     </c:forEach>
                     <input type="hidden" id="aveRating" name="aveRating" value="${aveRating}"/>
                     <script>
@@ -198,6 +182,13 @@
                     </script>
                 </c:otherwise>
             </c:choose>
+        </div>
+    </div>
+    <div class="modal fade" id="imgModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <img src="${product[0].path}" style="width: 600px; height: 600px;">
+            </div>
         </div>
     </div>
     <div style="height: 100px;"></div>

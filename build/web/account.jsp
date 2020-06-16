@@ -71,10 +71,26 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label>Mail </label>
-                                        <input type="text" name="txtMail" class="form-control" placeholder="Mail" value="${result.getMail()}">
+                                        <input type="text" name="txtMail" class="form-control" placeholder="Mail" value="${result.getMail()}" disabled>
                                     </div>
                                 </div> <br/>
+                                <input type="hidden" name="action" value="Change info"/>
                                 <input type="hidden" name="controller" value="UpdateAccountController">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Save</button>
+                            </form>
+                            <br/>
+                            <form id="confirmNewpass" class="container" method="POST" action="MainController">
+                                <span class="h4 text-muted">Change password</span><br/><br/>
+                                  <div>
+                                    <label>Password</label>
+                                    <input type="password" name="Password" class="form-control" placeholder="Password" value="" id="Password">
+                                  </div> <br/>
+                                  <div>
+                                        <label>Confirm</label>
+                                    <input type="password" name="Confirm" class="form-control" placeholder="Confirm" value="">
+                                  </div> <br/>
+                                <input type="hidden" name="controller" value="UpdateAccountController">
+                                <input type="hidden" name="action" value="Change pass"/>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Save</button>
                             </form>
                         </div>
@@ -155,4 +171,19 @@
           </div>
         </div>
     </body>
+    <script>
+            $(function() {
+                $("#confirmNewpass").validate({
+                    rules: {
+                       Password: {
+                           required: true,
+                           rangelength: [6,30]
+                       },
+                       Confirm: {
+                           equalTo: "#Password"
+                       }
+                   }
+                })
+            });
+    </script>
 </html>

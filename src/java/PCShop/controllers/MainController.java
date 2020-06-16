@@ -44,6 +44,7 @@ public class MainController extends HttpServlet {
     private final String VIEW_CHECK_OUT_CONTROLLER = "ViewCheckOutController";
     private final String CONFIRM_CHECK_OUT_CONTROLLER = "ConfirmCheckOutController";
     private final String VIEW_ACCOUNT_CONTROLLER = "ViewAccountController";
+    private final String UPDATE_ACCOUNT_CONTROLLER = "UpdateAccountController";
     private final String ADD_COMMENT_CONTROLLER = "AddCommentController";
     private final String DELETE_COMMENT_CONTROLLER = "DeleteCommentController";
     private final String CANCEL_ORDER_CONTROLLER = "CancelOrderController";
@@ -84,6 +85,8 @@ public class MainController extends HttpServlet {
                 url = VIEW_PRODUCT_CONTROLLER;
             } else if(controller.equals("AddAccountController")) {
                 url = ADD_ACCOUNT_CONTROLLER;
+            } else if(controller.equals("UpdateAccountController")) {
+                url = UPDATE_ACCOUNT_CONTROLLER;
             } else if(controller.equals("AddCartController")) {
                 url = ADD_CART_CONTROLLER;
             } else if(controller.equals("UpdateCartController")) {

@@ -153,6 +153,44 @@ public class RegistrationDAO implements Serializable{
             }
         }
     }
+    public boolean confirmMail(String pk, String mail) 
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        String confirmMail = null; 
+        try { 
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "SELECT Mail FROM Customer Where Customer.Username = ? AND isDeleted = 0";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,pk);
+                rs = stm.executeQuery();
+                while(rs.next()) {
+                    confirmMail = rs.getString("mail");
+                }
+            }
+            if(confirmMail !=null) {
+                if(confirmMail.equals(mail)){
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } finally { 
+            if(rs != null) {
+                rs.close();
+            } 
+            if(stm != null) {
+                stm.close();
+            }
+            if(con != null) {
+                con.close();
+            }
+        }
+    }
     
     public void searchAll () 
         throws SQLException, NamingException {
@@ -224,6 +262,68 @@ public class RegistrationDAO implements Serializable{
         return false;
     }
     
+    public boolean changePassword(String pk, String password) 
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        
+        try {
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "UPDATE Customer "
+                        + "SET Password = ? "
+                        + "Where Username = ?";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,password);
+                stm.setString(2,pk);
+                int row = stm.executeUpdate();
+                if(row > 0) {
+                    return true;
+                }
+                return false;
+            } 
+        } finally {
+            if(stm !=null) {
+                stm.close();
+            }
+            if(con !=null) {
+                con.close();
+            }
+        }
+        return false;
+    }
+    
+    public boolean changePasswordByUserID(String pk, String password) 
+        throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        
+        try {
+            con = DBUtils.makeConnection();
+            if(con != null) {
+                String sql = "UPDATE Customer "
+                        + "SET Password = ? "
+                        + "Where ID = ?";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,password);
+                stm.setString(2,pk);
+                int row = stm.executeUpdate();
+                if(row > 0) {
+                    return true;
+                }
+                return false;
+            } 
+        } finally {
+            if(stm !=null) {
+                stm.close();
+            }
+            if(con !=null) {
+                con.close();
+            }
+        }
+        return false;
+    }
+    
     public boolean updateRecord (String username, String password, boolean admin)
         throws SQLException, NamingException{ 
         Connection con = null;
@@ -238,6 +338,38 @@ public class RegistrationDAO implements Serializable{
                 stm.setString(1,password);
                 stm.setBoolean(2, admin);
                 stm.setString(3,username);
+                
+                int row = stm.executeUpdate();
+                if( row > 0 ) {
+                    return true;
+                }
+            }
+        } finally {
+            if(stm != null) {
+                stm.close();
+            }
+            if(con != null) {
+                con.close();
+            }
+        }
+        return false;
+    }
+    
+    public boolean updateInfo(String firstname,String lastname,String phone,String address,String pk)
+        throws SQLException, NamingException{ 
+        Connection con = null;
+        PreparedStatement stm = null;
+        
+        try {
+            con = DBUtils.makeConnection();
+            if(con !=null) {
+                String sql = "Update Customer " + 
+                        "Set firstname = ?, lastname = ?, phone = ?, address = ? Where ID = '" + pk + "'";
+                stm = con.prepareStatement(sql);
+                stm.setString(1,firstname);
+                stm.setString(2,lastname);
+                stm.setString(3,phone);
+                stm.setString(4,address);
                 
                 int row = stm.executeUpdate();
                 if( row > 0 ) {
@@ -289,4 +421,6 @@ public class RegistrationDAO implements Serializable{
         }
         return false;
     }
+
+    
 }

@@ -67,10 +67,10 @@
     <div class="container">
     <div class="row row-divided" id="row-1873463315">
 	<div class="col medium-4 large-4 col-divided col-hover-focus" data-animate="bounceIn" data-animated="true">
-            <div class="col-inner text-center">
+            <div class="col-inner">
 		<div class="icon-box featured-box icon-box-center text-center" style="margin:0px 0px 0px 0px;">
-                    <div class="icon-box-img has-icon-bg" style="width: 46px">
-                        <div class="icon">
+                    <div class="icon-box-img has-icon-bg container-fluid" style="width: 46px">
+                        <div class="icon ">
                                 <div class="icon-inner" style="border-width:2px;color:rgb(182, 182, 182);">
                                 <img width="100" height="100" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png" class="attachment-medium size-medium" alt="" srcset="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png 300w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-150x150.png 150w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-100x100.png 100w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1.png 400w" sizes="(max-width: 300px) 100vw, 300px">					</div>
                         </div>
@@ -99,7 +99,7 @@
                 </div>
             </div>
 	</div>
-	<div class="col medium-4 large-4 col-divided col-hover-focus align-items-center justify-content-center" data-animate="bounceIn" data-animated="true">
+	<div class="col medium-4 large-4 col-divided col-hover-focus" data-animate="bounceIn" data-animated="true">
             <div class="col-inner">
 		<div class="icon-box featured-box icon-box-center text-center" style="margin:0px 0px 0px 0px;">
                     <div class="icon-box-img has-icon-bg" style="width: 46px">
