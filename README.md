@@ -1,5 +1,5 @@
 # PCShop
-Open git bash at JWTAuthentication folder
-Command: 
-$ npm install
-$ npm run dev-server-auth
+Open git bash at JWTAuthentication folder <br/>
+  - Command: <br/>
+      $ npm install <br/>
+      $ npm run dev-server-auth <br/>
