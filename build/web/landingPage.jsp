@@ -63,60 +63,29 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-    </form>
-    <div class="container">
-    <div class="row row-divided" id="row-1873463315">
-	<div class="col medium-4 large-4 col-divided col-hover-focus" data-animate="bounceIn" data-animated="true">
-            <div class="col-inner">
-		<div class="icon-box featured-box icon-box-center text-center" style="margin:0px 0px 0px 0px;">
-                    <div class="icon-box-img has-icon-bg container-fluid" style="width: 46px">
-                        <div class="icon ">
-                                <div class="icon-inner" style="border-width:2px;color:rgb(182, 182, 182);">
-                                <img width="100" height="100" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png" class="attachment-medium size-medium" alt="" srcset="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png 300w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-150x150.png 150w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-100x100.png 100w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1.png 400w" sizes="(max-width: 300px) 100vw, 300px">					</div>
-                        </div>
-                    </div>
-                    <div class="icon-box-text last-reset">
-                        <h5 class="uppercase">Miễn phí giao hàng</h5>						
-                        <p>Miễn phí vận chuyển cho các đơn hàng nội thành và ngoại thành TPHCM.</p>
-                    </div>
+        </form>
+         <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+             <div class="row">
+                <div class="col-sm-4 text-center">
+                    <img width="80" height="80" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png" class="attachment-medium size-medium" alt="" srcset="https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-300x300.png 300w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-150x150.png 150w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1-100x100.png 100w, https://pcplayboy.xyz/wp-content/uploads/2020/06/icon-delivery-1-400x400-1.png 400w" sizes="(max-width: 300px) 100vw, 300px">
+                    <br/> <br/>
+                    <h5 class="uppercase">Miễn phí giao hàng</h5>						
+                    <p>Miễn phí vận chuyển cho các đơn hàng nội thành và ngoại thành TPHCM.</p>
                 </div>
-            </div>
-	</div>
-	<div class="col medium-4 large-4 col-divided col-hover-focus" data-animate="bounceIn" data-animated="true">
-            <div class="col-inner">
-		<div class="icon-box featured-box icon-box-center text-center" style="margin:0px 0px 0px 0px;">
-                    <div class="icon-box-img has-icon-bg" style="width: 46px">
-                        <div class="icon">
-                                <div class="icon-inner" style="border-width:2px;color:rgb(182, 182, 182);">
-                                <img width="100" height="100" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1-239x300.png" class="attachment-medium size-medium" alt="" srcset="https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1-239x300.png 239w, https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1.png 318w" sizes="(max-width: 239px) 100vw, 239px">					</div>
-                        </div>
-                    </div>
-                    <div class="icon-box-text last-reset">
-			<h5 class="uppercase">chăm sóc khách hàng</h5>						
-                        <p>Chúng tôi luôn hỗ trợ khách hàng 24/7 thông qua đường dây nóng 1900 6789 hoặc tại cửa hàng từ 9am-5pm, từ thứ 2 đến thứ 7.</p>       
-                        <p>&nbsp;</p>
-                    </div>
+                <div class="col-sm-4 text-center">
+                    <img width="80" height="80" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1-239x300.png" class="attachment-medium size-medium" alt="" srcset="https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1-239x300.png 239w, https://pcplayboy.xyz/wp-content/uploads/2020/06/customer-care-service-and-support-icon-vector-14678034-removebg-preview-318x400-1.png 318w" sizes="(max-width: 239px) 100vw, 239px">	
+                    <br/><br/>
+                    <h5 class="uppercase">chăm sóc khách hàng</h5>						
+                    <p>Chúng tôi luôn hỗ trợ khách hàng 24/7 thông qua đường dây nóng 1900 6789 hoặc tại cửa hàng từ 9am-5pm, từ thứ 2 đến thứ 7.</p>       
+                    <p>&nbsp;</p>
                 </div>
-            </div>
-	</div>
-	<div class="col medium-4 large-4 col-divided col-hover-focus" data-animate="bounceIn" data-animated="true">
-            <div class="col-inner">
-		<div class="icon-box featured-box icon-box-center text-center" style="margin:0px 0px 0px 0px;">
-                    <div class="icon-box-img has-icon-bg" style="width: 46px">
-                        <div class="icon">
-                            <div class="icon-inner" style="border-width:2px;color:rgb(182, 182, 182);">
-                                <img width="100" height="100" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/download-removebg-preview-1.png" class="attachment-medium size-medium img-circle" alt="">					</div>
-                            </div>
-                    </div>
-                    <div class="icon-box-text last-reset">
-                        <h5 class="uppercase">chính sách bảo hành</h5>						
-                        <p>Đổi mới 100% trong vòng 24 tháng nếu sản phẩm có lỗi do nhà sản xuất.</p>
-                    </div>
+                <div class="col-sm-4 text-center">
+                    <img width="80" height="80" src="https://pcplayboy.xyz/wp-content/uploads/2020/06/download-removebg-preview-1.png" class="attachment-medium size-medium img-circle" alt="">
+                    <br/><br/>
+                    <h5 class="uppercase">chính sách bảo hành</h5>						
+                    <p>Đổi mới 100% trong vòng 24 tháng nếu sản phẩm có lỗi do nhà sản xuất.</p>
                 </div>
-            </div>
-	</div>
-    </div>
-    </div>
+             </div>
+        </div>
     </body>
-
 </html>

@@ -84,9 +84,12 @@
         <br/>
         <div class="container-fluid">
             <div class="h1 text-muted">Details </div>
-            ${product[0].details}
+            <br/>
+            <div class="ml-3">
+                <span class="h4 text-dark " style="letter-spacing: 0.1em; line-height: 40px;">${product[0].details}</span>
+            </div>
         </div>
-        <div style="height: 100px;"></div>
+        <div style="height: 50px;"></div>
          <div class="container-fluid">
             <div class="h1 text-muted">Reviews </div>
         </div>
@@ -165,6 +168,25 @@
                                             <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
                                        </p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="<c:out value='deleteCmtModal_${comment.getID()}'/>" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete your comment</h5>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>Are you sure to delete this comment ?</p>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <form style="display: inline;" action="MainController" method="POST">
+                                        <button class="btn btn-danger">Delete</button>
+                                        <input type="hidden" name="controller" value="DeleteCommentController"/>
+                                        <input type="hidden" name="cmtID" value="${comment.getID()}"/>
+                                        <input type="hidden" name="pk" value="${comment.getProductID()}"/>
+                                    </form>
+                                </div>
                                 </div>
                             </div>
                         </div>

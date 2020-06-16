@@ -42,7 +42,6 @@
                 </ul>
             <c:if test="${not empty sessionScope.USERNAME}">
                 <form method="POST" action="/PCShop/MainController">
-                    <a href="/PCShop/ViewAccountController" class="btn btn-outline-light my-2 my-sm-0"><i class="fa fa-user" aria-hidden="true"></i></a>
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="btnAction" value="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
                     <input type="hidden" name="controller" value="Logging"/>
                 </form>

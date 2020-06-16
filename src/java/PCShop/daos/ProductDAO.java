@@ -659,14 +659,15 @@ public class ProductDAO implements Serializable{
                             + "details = ? " 
                             + "WHERE Product.ID = ? ";
                 stm = con.prepareStatement(sql);
-                stm.setString(1,categoryID);
-                stm.setString(2,description);
-                stm.setString(3,name);
+                stm.setNString(1,categoryID);
+                stm.setNString(2,description);
+                stm.setNString(3,name);
                 stm.setInt(4,Integer.parseInt(quantityProduct));
                 stm.setInt(5,Integer.parseInt(price));
                 stm.setInt(6,Integer.parseInt(discount));
-                stm.setString(7,details);
-                stm.setString(8,ID);
+                stm.setNString(7,details);
+                stm.setNString(8,ID);
+                System.out.println(stm.toString());
                 int rs= stm.executeUpdate();
                 
                 if(rs > 0) {

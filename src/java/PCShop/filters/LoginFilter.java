@@ -119,11 +119,11 @@ public class LoginFilter implements Filter {
                            chain.doFilter(request,response);
                        } else {
                            req.setAttribute("ERROR","YOU ARE NOT ALLOWED TO ENTER THIS PAGE!");
-                           req.getRequestDispatcher("../error.jsp").forward(req,res);
+                           req.getRequestDispatcher("../landingPage.jsp").forward(req,res);
                        }
                    } else {
                         req.setAttribute("ERROR", "PLEASE LOG IN FIRST!");
-                        req.getRequestDispatcher("../landingPage.jsp").forward(req, res);
+                        res.sendRedirect("/PCShop/ViewLandingPageController");
                    }
                    break;
                }

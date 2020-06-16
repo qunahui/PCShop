@@ -3,5 +3,5 @@
   <Resource auth="Container" driverClassname="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
             name="PCShopDS" 
             username="sa" password="123456789" 
-            type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=PCShopDB;instanceName=SQLEXPRESS?characterEncoding=UTF-8" />
+            type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=PCShopDB;instanceName=SQLEXPRESS?characterEncoding=utf8" />
 </Context>

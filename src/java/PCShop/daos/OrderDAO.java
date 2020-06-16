@@ -41,7 +41,7 @@ public class OrderDAO {
         try { 
             con = DBUtils.makeConnection();
             if(con != null) {
-                String sql = "SELECT * FROM [dbo].[Order] WHERE isDeleted = 0 AND CustomerID = '" + pk + "'";
+                String sql = "SELECT * FROM [dbo].[Order] WHERE CustomerID = '" + pk + "'";
                 stm = con.prepareStatement(sql);
                 rs = stm.executeQuery();
                 
