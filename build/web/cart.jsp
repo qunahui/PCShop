@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -50,8 +49,8 @@
                                             <input type="number" class="form-control text-center" value="${product.value.getQuantity()}" name="txtProQuantity" id="ProQuantity" readonly="true">
                                             <input type="hidden" name="txtProID" value="${product.value.getID()}"> </br>
                                             <div class="text-center">
-                                                <button class="btn btn-outline-dark" type="submit" value="Update quantity plus" name="btnAction"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                                 <button class="btn btn-outline-dark" type="submit" value="Update quantity minus" name="btnAction" ${product.value.getQuantity() == 1 ? 'disabled':''}><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                                <button class="btn btn-outline-dark" type="submit" value="Update quantity plus" name="btnAction"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                                 <input type="hidden" name="controller" value="UpdateCartController"/>
                                             </div>
                                     </form>
@@ -90,7 +89,9 @@
             </div>
         </c:if>
         <c:if test="${cart.isEmpty() == true}">
-            <h2>Cart does not exists!!!!</h2>
+            <div class="container text-center"> 
+                <h2>Cart does not exists!!!!</h2>
+            </div>
         </c:if>
     </body>
 </html>

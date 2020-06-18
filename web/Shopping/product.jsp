@@ -42,18 +42,18 @@
                             <s><fmt:formatNumber type="number" maxFractionDigits="1" value="${product[0].price}" /></s>
                         </span>
                         <span class="h3" style="color: #9e002a;">
-                            <fmt:formatNumber type="number" maxFractionDigits="1" value="${product[0].price*(1-product[0].discount/100)}" />
+                            <fmt:formatNumber type="number" maxFractionDigits="1" value="${product[0].price*(1-product[0].discount/100)}" />₫
                         </span>
                     </c:when>
                     <c:otherwise>
                         <h3 style="color: #9e002a;">
-                            <fmt:formatNumber type="number" maxFractionDigits="1" value="${product[0].price}" />
+                            <fmt:formatNumber type="number" maxFractionDigits="1" value="${product[0].price}" />₫
                         </h3>                                    
                     </c:otherwise>
                 </c:choose>
                     <br />
                     <br />
-                        <strong>Availability: </strong>
+                    <span class="h6" style="margin-right: 10px; margin-bottom: 0;" ><strong>Avaiability: </strong></span>
                         <c:choose>
                             <c:when test="${product[0].quantityProduct > 0}">
                                 <span class="text-success h4">${product[0].quantityProduct} in stock</span>
@@ -68,14 +68,14 @@
                         ${product[0].description}
                     </p> <br/>
                     <form class="form-inline" action="MainController" method="POST">
-                        <span class="h6" style="margin-right: 10px; margin-bottom: 0;" >Qty:</span><input class="form-control" type="number" step="1" min="1" max="${product[0].quantityProduct}" name="txtProQuantity" value="1">
+                        <span class="h6" style="margin-right: 10px; margin-bottom: 0;" ><strong>Quantity:</strong></span><input class="form-control" type="number" step="1" min="1" max="${product[0].quantityProduct}" name="txtProQuantity" value="1">
                         <input type="hidden" name="controller" value="AddCartController">
                         <input type="hidden" name="txtProID" value="${product[0].ID}">
                         <input type="hidden" name="txtProName" value="${product[0].name}">
                         <input type="hidden" name="txtProPrice" value="${product[0].price}">
                         <input type="hidden" name="txtProDiscount" value="${product[0].discount}">
                         <input type="hidden" name="txtProCategoryID" value="${product[0].categoryID}">
-                        <button class="btn btn-outline-dark my-2 my-sm-0" style="margin-left: 5px;" ${product[0].quantityProduct <= 0 ? 'disabled': ''}>Add to cart</button>
+                        <button class="btn btn-outline-primary my-2 my-sm-0" style="margin-left: 5px;" ${product[0].quantityProduct <= 0 ? 'disabled': ''}>Add to cart</button>
                     </form>
             </div>
         </div>
@@ -86,7 +86,7 @@
             <div class="h1 text-muted">Details </div>
             <br/>
             <div class="ml-3">
-                <span class="h4 text-dark " style="letter-spacing: 0.1em; line-height: 40px;">${product[0].details}</span>
+                <span class="h5 text-dark " style="letter-spacing: 0.1em; line-height: 40px;">${product[0].details}</span>
             </div>
         </div>
         <div style="height: 50px;"></div>
@@ -165,7 +165,7 @@
                                         <p>${comment.getComment()}</p>
                                         <p>
                                             <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                                            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                                            <a class="float-right btn text-white btn-secondary"> <i class="fa fa-heart"></i> Like</a>
                                        </p>
                                     </div>
                                 </div>
@@ -214,6 +214,7 @@
         </div>
     </div>
     <div style="height: 100px;"></div>
+    <jsp:include page="../footer.jsp"/>
     </body>
     <script>
     if ( window.history.replaceState ) {

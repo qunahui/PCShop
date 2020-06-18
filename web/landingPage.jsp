@@ -19,39 +19,48 @@
 
 <body>
     <jsp:include page="header.jsp" />
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="1500" data-pause="hover">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="30000" data-pause="hover">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                  <a href="/PCShop/ViewShopController?&searchByCategory=RAM">
                     <img class="d-block w-100" src="/PCShop/assets/category/RAM.jpg" style="width: 100%; height: 800px;" alt="First slide">
-                  </a>
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption d-none d-md-block" style="transform: translateY(-50px);">
+                    <h1 class="mb-5">Công nghệ của tương lai NVMe</h1>
+                    <a href="/PCShop/ViewShopController?&searchByCategory=SSD">
+                        <button class="btn btn-primary btn-lg">Mua ngay</button>
+                    </a>
                 </div>
               </div>
               <div class="carousel-item">
                 <a href="/PCShop/ViewShopController?&searchByCategory=GPU">
                     <img class="d-block w-100" src="/PCShop/assets/category/GPU.jpg" style="width: 100%; height: 800px;" alt="Second slide">
                 </a>
+                <div class="carousel-caption d-none d-md-block" style="transform: translateY(-250px) translateX(-550px);">
+                    <a href="/PCShop/ViewShopController?&searchByCategory=GPU">
+                        <button class="btn btn-primary btn-lg">Mua ngay</button>
+                    </a>
+                </div>
               </div>
               <div class="carousel-item">
-                <a href="/PCShop/ViewShopController?&searchByCategory=CPU">
                     <img class="d-block w-100" src="/PCShop/assets/category/CPU.jpg" style="width: 100%; height: 800px;" alt="Third slide">
-                </a>
+                <div class="carousel-caption d-none d-md-block" style="transform: translateX(-550px);">
+                    <a href="/PCShop/ViewShopController?&searchByCategory=CPU">
+                        <button class="btn btn-primary btn-lg p-3">Mua ngay</button>
+                    </a>
+                </div>
               </div>
               <div class="carousel-item">
-                <a href="/PCShop/ViewShopController?&searchByCategory=MAINBOARD">
                     <img class="d-block w-100" src="/PCShop/assets/category/MB.jpg" style="width: 100%; height: 800px;" alt="4th slide">
-                </a>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="/PCShop/assets/category/Case.jpg"style="width: 100%; height: 800px;" alt="5th slide">
+                <div class="carousel-caption d-none d-md-block" style="transform: translateX(-400px) translateY(-20px);">
+                    <a href="/PCShop/ViewShopController?&searchByCategory=MAINBOARD">
+                        <button class="btn btn-primary btn-lg p3">Mua ngay</button>
+                    </a>
+                </div>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -87,5 +96,6 @@
                 </div>
              </div>
         </div>
+         <jsp:include page="footer.jsp"/>
     </body>
 </html>
